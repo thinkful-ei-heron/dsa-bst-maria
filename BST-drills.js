@@ -36,6 +36,7 @@ let BST = new bstTree();
     BST.insert(2); 
     BST.insert(5); 
     BST.insert(7);
+
     // count = 8 
 let numBST = new bstTree();
 numBST.insert('E');
@@ -51,7 +52,9 @@ numBST.insert('I');
 numBST.insert('O');
 numBST.insert('N');
 
+
 console.log(BST)
+console.log(numBST) 
 }
 
 main(); 
@@ -67,9 +70,9 @@ function tree(t){
         return 0;
     }
     return tree(t.left) + t.value + tree(t.right)
+
 }
-// console.log(total)
-// console.log(tree(total));
+console.log(tree())
 
 
 //===============================================================================
@@ -107,7 +110,7 @@ function MaxHeightBst(node){
      }
     
 } 
-console.log(MaxHeightBst(main())); 
+
 
 //===============================================================================
 
@@ -191,13 +194,58 @@ const arr2 = [3, 1, 5, 2, 4, 6, 0]
 
 function sameBst(arr1, arr2){
 
+    // create two empty arrays that represent the BST
+    const rightArr = [];
+    const leftArr = [];
+
+    const rightArrTwo  = [];
+    const leftArrTwo = []
+
+     // if arr 1 length = arr2 length or arr 1 at index 0 doesnt equal arr 2 at index 0 
+    if (arr1.length !== arr2.length || arr1[0] !== arr2[0]) return false;
+    // if there is nothign in the arrays
+    if (arr1.length === 0 || arr2.length === 0) return true;
+
+ // loop over array1 
+    for(let i = 0; i< arr1.length; i++) {
+        // if the arr at that index is higher than at index 0 ...
+        if( arr1[i] > arr1[0]){
+        // then push that index into the righ array (higher)
+            rightArr.push(arr1[i])
+        } 
+        // if arr at that index is lower than array at 0
+        // push it into the left arrray. 
+        else {
+            leftArr.push(arr1[i])
+        }
+    }
+
+    // REPEAT for ARRAY #2 
+    for(let i = 0; i< arr2.length; i++) {
+        // if the arr at that index is higher than at index 0 ...
+        if( arr2[i] > arr2[0]){
+        // then push that index into the righ array (higher)
+            rightArr.push(arr2[i])
+        } 
+        // if arr at that index is lower than array at 0
+        // push it into the left arrray. 
+        else {
+            leftArr.push(arr2[i])
+        }
+    }
+
+return (sameBst(rightArr, rightArrTwo) && sameBst(leftArr, leftArrTwo) )
+
 }
+console.log(sameBst(arr1, arr2))
 
-
+// Example from afternoon session : 
 
 // given sorted array, write algo to create a BST from elements in 
 // array. 
 // input [3,5,7,9, 11, 13, 15]
+
+
 
 class BST {
 

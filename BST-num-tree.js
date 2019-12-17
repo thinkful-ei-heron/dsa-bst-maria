@@ -166,6 +166,8 @@ class BinarySearchTree {
         // if you can find value after breaking out of node, return false 
         return false
 
+        console.log(his.contains());
+
     }
 
 }
