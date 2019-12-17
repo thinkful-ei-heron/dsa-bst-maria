@@ -2,27 +2,30 @@ const bstTree = require('./BST-num-tree')
 
 //#1. 
 //               3
-              
-//         1             4 
-//     2                     6
-//                        5     9
-//                             7
-
+//             /   \ 
+//            1    4 
+//           /      \
+//          2        6
+//                   / \  
+//                 5    9
+//                       \         
+//                        7
 // This tree is skewed to the right, and is an O(n)
 
+//===============================================================================
 
 //#2
-//               4
-              
-//         1               6 
-//     2                 5       9
-//                              7
-
+//                4
+//               / \
+//              1   6 
+//             /   / \ 
+//           2    5  9
+//                    \    
+//                    7
 //                           
-
+//===============================================================================
 
 //#3 
-
 function main(){
 let BST = new bstTree();
     BST.insert(3); 
@@ -32,18 +35,44 @@ let BST = new bstTree();
     BST.insert(9); 
     BST.insert(2); 
     BST.insert(5); 
-    BST.insert(7); 
+    BST.insert(7);
+    // count = 8 
+let numBST = new bstTree();
+numBST.insert('E');
+numBST.insert('A');
+numBST.insert('S');
+numBST.insert('Y');
+numBST.insert('Q');
+numBST.insert('U');
+numBST.insert('E');
+numBST.insert('S');
+numBST.insert('T');
+numBST.insert('I');
+numBST.insert('O');
+numBST.insert('N');
 
-    return BST 
-
+console.log(BST)
 }
-// console.log(BST)
-// console.log(main())
 
 main(); 
-//#4.  function passes in a t value , if there is no t value, then
-// return a 0 , else return the left value and right value 
 
+//===============================================================================
+
+//#4.  
+
+const total = main(); // should be 37 
+
+function tree(t){
+    if(!t){
+        return 0;
+    }
+    return tree(t.left) + t.value + tree(t.right)
+}
+// console.log(total)
+// console.log(tree(total));
+
+
+//===============================================================================
 
 //#5. Height of BST :
 
@@ -77,27 +106,10 @@ function MaxHeightBst(node){
          }
      }
     
-} console.log(MaxHeightBst(main())); 
+} 
+console.log(MaxHeightBst(main())); 
 
-function main(){
-    let BST = new bstTree();
-        BST.insert(3); 
-        BST.insert(1); 
-        BST.insert(4);
-        BST.insert(6);
-        BST.insert(9); 
-        BST.insert(2); 
-        BST.insert(5); 
-        BST.insert(7); 
-    // console.log(MaxHeightBst(BST))
-    // console.log(isItsABinary(BST))
-       
-    }
-
-
-
-console.log(main()); 
-
+//===============================================================================
 
 //#6. 
 function isItsABinary(node) {
@@ -124,6 +136,8 @@ function isItsABinary(node) {
 }
 console.log(isItsABinary(main()))  // false 
 
+//===============================================================================
+
 //#7 
 
 function thirdLargest( node ) {
@@ -149,6 +163,7 @@ function thirdLargest( node ) {
 
 console.log(thirdLargest(main())); 
 
+//===============================================================================
 
 //#8. 
 function balancesBst(node) {
@@ -167,8 +182,9 @@ function balancesBst(node) {
 
 console.log(balancesBst(main())) // FALSE 
 
-//#9 
+//===============================================================================
 
+//#9 
 
 const arr1 = [3, 5, 4, 6, 1, 0, 2]
 const arr2 = [3, 1, 5, 2, 4, 6, 0]
@@ -182,8 +198,6 @@ function sameBst(arr1, arr2){
 // given sorted array, write algo to create a BST from elements in 
 // array. 
 // input [3,5,7,9, 11, 13, 15]
-
-
 
 class BST {
 

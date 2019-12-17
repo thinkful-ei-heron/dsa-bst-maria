@@ -168,57 +168,10 @@ class BinarySearchTree {
 
     }
 
-    MaxHeightBst(node){
-        // if tree is empty 0
-        if (!node) {
-            return 0
-        }
-    
-    //  if tree has only a root node, return a 1
-        if( !node.left && !node.right){
-            return 1;
-         }
-         // set height to 0
-         let height = 0;
-    
-         // get max depth of right side and set it to height 
-         if(node.right){
-             let rightHeight = 1 + MaxHeightBst(node.right);
-             if(rightHeight > height){
-                 height = rightHeight
-             }
-             // get max depth of left side and set to height 
-             if(node.left){
-                 let leftHeight = 1 + MaxHeightBst(node.left);
-                 if(leftHeight > height){
-                     height = leftHeight;
-                 }
-                 // return height with the max depth either left or right 
-                 return height 
-             }
-         }
-        }
-
-
 }
 
 module.exports = BinarySearchTree;
 
 
-// create instance of binary tree
-
-const BST = new BinarySearchTree();
-BST.insert(89); 
-BST.insert(76); 
-BST.insert(112);
-BST.insert(39);
-BST.insert(99); 
-BST.size()
-BST._findMin();
-
-BST.MaxHeightBst(); 
-
-
-// console.log(contains(BST)) 
 
 
