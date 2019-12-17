@@ -26,44 +26,13 @@ const bstTree = require('./BST-num-tree')
 //===============================================================================
 
 //#3 
-function main(){
-let BST = new bstTree();
-    BST.insert(3); 
-    BST.insert(1); 
-    BST.insert(4);
-    BST.insert(6);
-    BST.insert(9); 
-    BST.insert(2); 
-    BST.insert(5); 
-    BST.insert(7);
-
-    // count = 8 
-let numBST = new bstTree();
-numBST.insert('E');
-numBST.insert('A');
-numBST.insert('S');
-numBST.insert('Y');
-numBST.insert('Q');
-numBST.insert('U');
-numBST.insert('E');
-numBST.insert('S');
-numBST.insert('T');
-numBST.insert('I');
-numBST.insert('O');
-numBST.insert('N');
-
-
-console.log(BST)
-console.log(numBST) 
-}
-
-main(); 
+// at the end 
 
 //===============================================================================
 
 //#4.  
 
-const total = main(); // should be 37 
+// const total = main(); // should be 37 
 
 function tree(t){
     if(!t){
@@ -72,10 +41,7 @@ function tree(t){
     return tree(t.left) + t.value + tree(t.right)
 
 }
-console.log(tree())
-
-
-//===============================================================================
+//==============================================================================
 
 //#5. Height of BST :
 
@@ -93,24 +59,24 @@ function MaxHeightBst(node){
      let height = 0;
 
      // get max depth of right side and set it to height 
-     if(node.right){
-         let rightHeight = 1 + MaxHeightBst(node.right);
-         if(rightHeight > height){
+    if(node.right){
+        let rightHeight = 1 + MaxHeightBst(node.right);
+        if(rightHeight > height){
              height = rightHeight
-         }
+        }
+    }
          // get max depth of left side and set to height 
-         if(node.left){
-             let leftHeight = 1 + MaxHeightBst(node.left);
-             if(leftHeight > height){
+    if(node.left){
+        let leftHeight = 1 + MaxHeightBst(node.left);
+        if(leftHeight > height){
                  height = leftHeight;
-             }
+        }
              // return height with the max depth either left or right 
-             return height 
-         }
-     }
+        
+    }
+    return height 
     
 } 
-
 
 //===============================================================================
 
@@ -270,3 +236,39 @@ function sortedArrayToBST(arr, start=0, end= arr.length -1){
 
     return bst; 
  }
+
+
+
+ function main(){
+    let BST = new bstTree();
+        BST.insert(3); 
+        BST.insert(1); 
+        BST.insert(4);
+        BST.insert(6);
+        BST.insert(9); 
+        BST.insert(2); 
+        BST.insert(5); 
+        BST.insert(7);
+    
+        // count = 8 
+    let numBST = new bstTree();
+    numBST.insert('E');
+    numBST.insert('A');
+    numBST.insert('S');
+    numBST.insert('Y');
+    numBST.insert('Q');
+    numBST.insert('U');
+    numBST.insert('E');
+    numBST.insert('S');
+    numBST.insert('T');
+    numBST.insert('I');
+    numBST.insert('O');
+    numBST.insert('N');
+    
+    console.log('max height',  MaxHeightBst(BST)); 
+    console.log('')
+    // console.log(BST)  
+    // console.log(numBST) 
+    }
+    
+    main(); 
